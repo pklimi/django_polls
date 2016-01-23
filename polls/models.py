@@ -14,6 +14,13 @@ class Question(models.Model):
     def was_published_recently(self):
         return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
     
+    # 在列表界面排序依赖另一字段
+    was_published_recently.admin_order_field = 'pub_date'
+    # 显示为Boolean型
+    was_published_recently.boolean = True
+    # 在列表界面显示的描述
+    was_published_recently.sort_description = 'Published recently ?'
+    
     # 显示自定义内容
     def __str__(self):
         return self.question_text

@@ -59,7 +59,8 @@ ROOT_URLCONF = 'django_polls.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        # 定义模板搜寻路径
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -113,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # 中文 GTM+8
 LANGUAGE_CODE = 'zh-cn'
-TIME_ZONE = 'Etc/GMT+8'
+TIME_ZONE = 'Etc/GMT-8'
 
 USE_I18N = True
 
