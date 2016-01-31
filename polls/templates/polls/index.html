@@ -1,0 +1,19 @@
+{% if latest_question_list %}
+    <ul>
+        {% for question in latest_question_list %}
+        
+            {% comment %}
+            <!-- 硬编码url -->
+            <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
+            
+            <!-- 自动url，把question.id传入name=detail的url中，形成最终url -->
+            <li><a href="{% url 'detail' question.id %}">{{ question.question_text }}</a></li>
+            {% endcomment %}
+            
+            <!-- 带命名空间的url -->
+            <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}

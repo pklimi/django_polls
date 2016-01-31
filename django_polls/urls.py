@@ -20,6 +20,6 @@ from django.conf.urls import include
 
 urlpatterns = [
     # 引用指定的url配置
-    url(r'^polls/', include('polls.urls')), 
+    url(r'^polls/', include('polls.urls', namespace="polls")), 
     url(r'^admin/', admin.site.urls),
 ]
